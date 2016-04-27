@@ -1,4 +1,4 @@
-package com.example.xianskel.dreamalyze;
+package com.example.xianskel.dreamalyze.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
+
+import com.example.xianskel.dreamalyze.pojos.Dream;
+import com.example.xianskel.dreamalyze.R;
 
 public class ContactActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.xianskel.dreamalyze;
+package com.example.xianskel.dreamalyze.pojos;
 
 import android.content.Context;
 
@@ -67,8 +67,6 @@ public class Dream {
         JSONObject jsonObj = new JSONObject();
         //create the JSON dream object - create the name pairs
         //if there is already a dream for this date
-
-
         jsonObj.put("date", date);
         jsonObj.put("dream", newDream);
         allDreams.put(jsonObj);
@@ -95,8 +93,26 @@ public class Dream {
         outStreamWriter.append(allDreams.toString());
         //clear the writer to save data
         outStreamWriter.flush();
+    }
 
+    public static String getAllDreamText(Context context){
+        String allDreamText = "";
+        try{
 
+            //convert JSON String to JSON Object Array
+            String allDreams = getAllDreams(context);
+            JSONArray dreams = new JSONArray(allDreams);
+
+            for(int i = 0; i < dreams.length(); i++){
+                JSONObject dream = dreams.getJSONObject(i);
+                allDreamText+=dream.get("dream");
+            }
+        }
+        catch(JSONException j){
+            j.printStackTrace();
+        }
+
+        return allDreamText;
     }
 
 }

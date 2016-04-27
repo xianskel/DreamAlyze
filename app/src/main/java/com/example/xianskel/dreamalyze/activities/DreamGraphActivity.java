@@ -1,4 +1,4 @@
-package com.example.xianskel.dreamalyze;
+package com.example.xianskel.dreamalyze.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,18 +8,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
+import com.github.mikephil.charting.charts.PieChart;
 
-public class AboutActivity extends AppCompatActivity {
+import com.example.xianskel.dreamalyze.pojos.Dream;
+import com.example.xianskel.dreamalyze.R;
+
+public class DreamGraphActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.about);
+        setContentView(R.layout.dream_graph);
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
+
+        PieChart chart = (PieChart) findViewById(R.id.chart);
     }
 
     @Override
@@ -34,13 +40,13 @@ public class AboutActivity extends AppCompatActivity {
 
         if(id == R.id.action_contact){
             // Start NewActivity.class
-            Intent myIntent = new Intent(AboutActivity.this,
+            Intent myIntent = new Intent(DreamGraphActivity.this,
                     ContactActivity.class);
             startActivity(myIntent);
         }
         else if(id == R.id.action_about){
             // Start NewActivity.class
-            Intent myIntent = new Intent(AboutActivity.this,
+            Intent myIntent = new Intent(DreamGraphActivity.this,
                     AboutActivity.class);
             startActivity(myIntent);
         }

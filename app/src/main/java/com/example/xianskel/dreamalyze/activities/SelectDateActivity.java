@@ -1,4 +1,4 @@
-package com.example.xianskel.dreamalyze;
+package com.example.xianskel.dreamalyze.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,9 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
+import com.example.xianskel.dreamalyze.pojos.Dream;
+import com.example.xianskel.dreamalyze.R;
+
 import java.util.Calendar;
 
 public class SelectDateActivity extends AppCompatActivity {

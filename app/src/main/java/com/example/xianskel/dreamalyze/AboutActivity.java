@@ -1,5 +1,6 @@
 package com.example.xianskel.dreamalyze;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -30,10 +31,16 @@ public class AboutActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if(id == R.id.action_contact){
-            return true;
+            // Start NewActivity.class
+            Intent myIntent = new Intent(AboutActivity.this,
+                    ContactActivity.class);
+            startActivity(myIntent);
         }
         else if(id == R.id.action_about){
-            return true;
+            // Start NewActivity.class
+            Intent myIntent = new Intent(AboutActivity.this,
+                    AboutActivity.class);
+            startActivity(myIntent);
         }
         else if(id == R.id.action_clear_logs){
             return true;

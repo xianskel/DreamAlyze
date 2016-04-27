@@ -14,8 +14,9 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
-    private Button button;
-
+    private Button record_view_button;
+    private Button view_logs_button;
+    private Button dream_graph_view_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +27,37 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Locate the button in activity_main.xml
-        button = (Button) findViewById(R.id.record_dream_button);
+        record_view_button = (Button) findViewById(R.id.record_dream_view_btn);
+        view_logs_button = (Button) findViewById(R.id.view_logs_btn);
+        dream_graph_view_button = (Button) findViewById(R.id.dream_graph_view_btn);
 
         // Capture button clicks
-        button.setOnClickListener(new View.OnClickListener() {
+        record_view_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
 
                 // Start NewActivity.class
                 Intent myIntent = new Intent(MainActivity.this,
                         RecordDreamActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        view_logs_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                // Start NewActivity.class
+                Intent myIntent = new Intent(MainActivity.this,
+                        SelectDateActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        dream_graph_view_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                // Start NewActivity.class
+                Intent myIntent = new Intent(MainActivity.this,
+                        DreamGraphActivity.class);
                 startActivity(myIntent);
             }
         });
@@ -51,10 +74,16 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
        if(id == R.id.action_contact){
-           return true;
+           // Start NewActivity.class
+           Intent myIntent = new Intent(MainActivity.this,
+                   ContactActivity.class);
+           startActivity(myIntent);
        }
        else if(id == R.id.action_about){
-           return true;
+           // Start NewActivity.class
+           Intent myIntent = new Intent(MainActivity.this,
+                   AboutActivity.class);
+           startActivity(myIntent);
        }
        else if(id == R.id.action_clear_logs){
            return true;

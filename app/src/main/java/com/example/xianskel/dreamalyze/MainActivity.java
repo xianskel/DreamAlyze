@@ -1,5 +1,7 @@
 package com.example.xianskel.dreamalyze;
 
+//API KEY IS c9708cb2f12b7e678d807d443ba61ca4b6890145
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private Button button;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

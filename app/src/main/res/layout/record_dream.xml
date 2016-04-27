@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.xianskel.dreamalyze.RecordDreamActivity"
+    android:background="@color/background">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar"
+        ></include>
+
+    <LinearLayout
+    android:id="@+id/layout1"
+        android:layout_below="@id/tool_bar"
+        android:layout_width="match_parent"
+    android:layout_height="350dp"
+    android:layout_marginTop="8dp"
+    android:padding="10dp"
+    android:gravity="right">
+
+    <EditText
+        android:layout_width="345dp"
+        android:layout_height="match_parent"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.51"
+        android:padding="10dp"
+        android:background="#E0E0E0"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout1"
+        android:layout_marginTop="8dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Record Dream"/>
+    </LinearLayout>
+</RelativeLayout>

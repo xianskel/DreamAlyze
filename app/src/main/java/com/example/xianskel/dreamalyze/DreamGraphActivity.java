@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
+import com.github.mikephil.charting.charts.PieChart;
 
 public class DreamGraphActivity extends AppCompatActivity {
 
@@ -20,6 +21,8 @@ public class DreamGraphActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
+
+        PieChart chart = (PieChart) findViewById(R.id.chart);
     }
 
     @Override

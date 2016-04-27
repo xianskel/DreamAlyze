@@ -21,12 +21,10 @@
         android:padding="10dp"
         android:gravity="right">
 
-        <ImageView
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/chart"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:paddingTop="20dp"
-            android:src="@drawable/piechart"
-            />
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

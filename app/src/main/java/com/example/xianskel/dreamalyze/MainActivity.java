@@ -69,9 +69,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         test.setOnClickListener(new View.OnClickListener() {
-            //Context context = getApplicationContext();
+            Context context = getApplicationContext();
             public void onClick(View arg0) {
-                System.out.println("Hello");
+                System.out.println(Dream.getAllDreams(context));
             }
         });
     }

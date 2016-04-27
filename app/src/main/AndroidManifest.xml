@@ -12,21 +12,21 @@
         android:theme="@style/AppTheme">
         <activity
             android:label="@string/app_name"
-            android:name=".AboutActivity" >
+            android:name=".activities.AboutActivity" >
         </activity>
         <activity
             android:label="@string/app_name"
-            android:name=".ContactActivity" >
+            android:name=".activities.ContactActivity" >
         </activity>
         <activity
             android:label="@string/app_name"
-            android:name=".DateDreamActivity" >
+            android:name=".activities.DateDreamActivity" >
         </activity>
         <activity
             android:label="@string/app_name"
-            android:name=".DreamGraphActivity" >
+            android:name=".activities.DreamGraphActivity" >
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,11 +35,11 @@
         </activity>
         <activity
             android:label="@string/app_name"
-            android:name=".RecordDreamActivity" >
+            android:name=".activities.RecordDreamActivity" >
         </activity>
         <activity
             android:label="@string/app_name"
-            android:name=".SelectDateActivity" >
+            android:name=".activities.SelectDateActivity" >
         </activity>
     </application>
 

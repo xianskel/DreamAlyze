@@ -1,4 +1,4 @@
-package com.example.xianskel.dreamalyze;
+package com.example.xianskel.dreamalyze.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.xianskel.dreamalyze.pojos.Dream;
+import com.example.xianskel.dreamalyze.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

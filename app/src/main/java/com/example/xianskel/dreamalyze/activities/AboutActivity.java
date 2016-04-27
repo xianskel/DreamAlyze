@@ -1,4 +1,4 @@
-package com.example.xianskel.dreamalyze;
+package com.example.xianskel.dreamalyze.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,16 +9,17 @@ import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
-import java.util.Date;
+import com.example.xianskel.dreamalyze.pojos.Dream;
+import com.example.xianskel.dreamalyze.R;
 
-public class DateDreamActivity extends AppCompatActivity {
+public class AboutActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.date_dream_info);
+        setContentView(R.layout.about);
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
@@ -36,13 +37,13 @@ public class DateDreamActivity extends AppCompatActivity {
 
         if(id == R.id.action_contact){
             // Start NewActivity.class
-            Intent myIntent = new Intent(DateDreamActivity.this,
+            Intent myIntent = new Intent(AboutActivity.this,
                     ContactActivity.class);
             startActivity(myIntent);
         }
         else if(id == R.id.action_about){
             // Start NewActivity.class
-            Intent myIntent = new Intent(DateDreamActivity.this,
+            Intent myIntent = new Intent(AboutActivity.this,
                     AboutActivity.class);
             startActivity(myIntent);
         }

@@ -20,11 +20,10 @@ public class SelectDateActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private CalendarView calendar;
     private Button select_date_button;
-    private int selectedYear;
-    private int selectedMonth;
-    private int selectedDay;
-    //private Calendar c = Calendar.getInstance();
-    //SimpleDateFormat df = new SimpleDateFormat("");
+    private Calendar c = Calendar.getInstance();
+    private int selectedYear = c.get(Calendar.YEAR);
+    private String selectedMonth = "0"+(c.get(Calendar.MONTH)+1);
+    private int selectedDay = c.get(Calendar.DATE);;
 
 
     @Override
@@ -42,7 +41,10 @@ public class SelectDateActivity extends AppCompatActivity {
             public void onSelectedDayChange(CalendarView view,
                                             int year, int month, int dayOfMonth) {
                 selectedYear = year;
-                selectedMonth = month;
+                selectedMonth = String.valueOf(month+=1);
+                if(Integer.parseInt(selectedMonth)<10){
+                    selectedMonth = "0"+month;
+                }
                 selectedDay = dayOfMonth;
             }
         });
@@ -52,8 +54,10 @@ public class SelectDateActivity extends AppCompatActivity {
             public void onClick(View arg0) {
                 Toast.makeText(getApplicationContext(),
                         selectedDay + "/" + selectedMonth + "/" + selectedYear, Toast.LENGTH_LONG).show();
+                System.out.println("test");
                 Context context = getApplicationContext();
-                System.out.print(Dream.getDreamByDate(selectedDay + "/" + selectedMonth + "/" + selectedYear, context));
+                System.out.println(selectedDay+"/"+selectedMonth+"/"+selectedYear);
+                System.out.println(Dream.getDreamByDate(selectedDay + "/" + selectedMonth + "/" + selectedYear, context));
 
             }
         });

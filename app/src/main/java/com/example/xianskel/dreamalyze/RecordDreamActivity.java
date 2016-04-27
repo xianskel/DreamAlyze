@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,19 +31,19 @@ public class RecordDreamActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         record_dream_button = (Button) findViewById(R.id.record_dream_btn);
-        dreamText = (TextView)findViewById(R.id.dream_text);
+        dreamText = (EditText)findViewById(R.id.dream_text);
 
         // Capture button clicks
         record_dream_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
 
                 Calendar c = Calendar.getInstance();
-                SimpleDateFormat df = new SimpleDateFormat("dd/mm/yyyy");
+                SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
                 final String formattedDate = df.format(c.getTime());
                 String dream = dreamText.getText().toString();
 
-                if(dream.length()<50){
-                    Toast.makeText(getApplicationContext(), "Dreams must be at least 50 characters", Toast.LENGTH_LONG).show();
+                if(dream.length()<5){
+                    Toast.makeText(getApplicationContext(), "Dreams must be at least 5 characters", Toast.LENGTH_LONG).show();
                 }
 
                 else if(dream.length()>500){
@@ -54,6 +55,10 @@ public class RecordDreamActivity extends AppCompatActivity {
                     try{
                         Dream.addDream(formattedDate, dream, context);
                         Toast.makeText(getApplicationContext(), "Dream added", Toast.LENGTH_LONG).show();
+                        System.out.println("Dream:" + dream);
+                        System.out.println(formattedDate);
+
+
                     }
                     catch(Exception e){
                         e.printStackTrace();

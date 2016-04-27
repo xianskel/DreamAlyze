@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button record_view_button;
     private Button view_logs_button;
     private Button dream_graph_view_button;
+    private Button test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         record_view_button = (Button) findViewById(R.id.record_dream_view_btn);
         view_logs_button = (Button) findViewById(R.id.view_logs_btn);
         dream_graph_view_button = (Button) findViewById(R.id.dream_graph_view_btn);
+        test = (Button) findViewById(R.id.test_btn);
+
 
         // Capture button clicks
         record_view_button.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +64,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent myIntent = new Intent(MainActivity.this,
                         DreamGraphActivity.class);
                 startActivity(myIntent);
+            }
+        });
+
+
+        test.setOnClickListener(new View.OnClickListener() {
+            //Context context = getApplicationContext();
+            public void onClick(View arg0) {
+                System.out.println("Hello");
             }
         });
     }

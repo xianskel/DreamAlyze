@@ -67,7 +67,6 @@ public class Dream {
         JSONObject jsonObj = new JSONObject();
         //create the JSON dream object - create the name pairs
         //if there is already a dream for this date
-<<<<<<< HEAD:app/src/main/java/com/example/xianskel/dreamalyze/pojos/Dream.java
         jsonObj.put("date", date);
         jsonObj.put("dream", newDream);
         allDreams.put(jsonObj);
@@ -111,37 +110,7 @@ public class Dream {
         }
         catch(JSONException j){
             j.printStackTrace();
-=======
-
-
-        jsonObj.put("date", date);
-        jsonObj.put("dream", newDream);
-        allDreams.put(jsonObj);
-        //i then add all the previous dreams to it to overcome the problem
-        //of array storing objects for a short length of time
-        //first make sure that this isn't the first dream being entered
-        if(Dream.getAllDreams(context).length() > 5){
-            JSONArray dreams = new JSONArray(Dream.getAllDreams(context));
-            //add previous dreams to the new array
-            for(int i = 0; i < dreams.length(); i++){
-                allDreams.put(dreams.getJSONObject(i));
-            }
-
-            Dream.clearAllDreams(context);
->>>>>>> 4414ac644e0ac3b7a897a4e722db3e26437b3412:app/src/main/java/com/example/xianskel/dreamalyze/Dream.java
         }
-        //remove all the previous dreams as allDreams will already have them
-        //--- as what will happen is the JSON array will have some stored in short term
-        //memory and it will essentially duplicate the array
-        //passing the boolean true means we can append to the file
-        File file = new File(context.getFilesDir(), "dreams.json");
-        FileOutputStream outF = new FileOutputStream(file , true);
-        OutputStreamWriter outStreamWriter = new OutputStreamWriter(outF);
-        //append the new dream onto previous dreams
-        outStreamWriter.append(allDreams.toString());
-        //clear the writer to save data
-        outStreamWriter.flush();
-
 
         return allDreamText;
     }

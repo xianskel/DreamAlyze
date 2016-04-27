@@ -18,57 +18,53 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:padding="10dp"
         android:gravity="right">
 
-        <ImageView
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:paddingTop="20dp"
-            android:src="@drawable/logo"
-            />
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:text="Date: XX/XX/XXXX"
+            android:id="@+id/dateText"
+            android:textColor="#E0E0E0"/>
+
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/layout2"
+        android:layout_below="@id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/layout1"
         android:layout_marginTop="8dp"
-        android:gravity="center">
+        android:padding="10dp"
+        android:gravity="right">
 
-        <Button
-            android:id="@+id/record_dream_button"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:text="Record Dream"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:paddingTop="20dp"
+            android:src="@drawable/piechart"
             />
+
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/layout3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:layout_below="@id/layout2"
+        android:padding="10dp"
         android:layout_marginTop="8dp"
         android:gravity="center">
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:text="View Logs" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Text from the dream goes here"
+            android:padding="10dp"
+            android:id="@+id/dreamText"
+            android:textColor="#E0E0E0"/>
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/layout4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/layout3"
-        android:layout_marginTop="8dp"
-        android:gravity="center">
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:text="Dream Graph" />
-    </LinearLayout>
 </RelativeLayout>

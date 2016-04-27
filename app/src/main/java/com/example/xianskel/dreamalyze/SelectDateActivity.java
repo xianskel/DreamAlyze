@@ -1,5 +1,6 @@
 package com.example.xianskel.dreamalyze;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,9 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class SelectDateActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
@@ -19,6 +23,9 @@ public class SelectDateActivity extends AppCompatActivity {
     private int selectedYear;
     private int selectedMonth;
     private int selectedDay;
+    //private Calendar c = Calendar.getInstance();
+    //SimpleDateFormat df = new SimpleDateFormat("");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +52,8 @@ public class SelectDateActivity extends AppCompatActivity {
             public void onClick(View arg0) {
                 Toast.makeText(getApplicationContext(),
                         selectedDay + "/" + selectedMonth + "/" + selectedYear, Toast.LENGTH_LONG).show();
+                Context context = getApplicationContext();
+                System.out.print(Dream.getDreamByDate(selectedDay + "/" + selectedMonth + "/" + selectedYear, context));
 
             }
         });
@@ -75,7 +84,9 @@ public class SelectDateActivity extends AppCompatActivity {
             startActivity(myIntent);
         }
         else if(id == R.id.action_clear_logs){
-            return true;
+            Context context = getApplicationContext();
+            Dream.clearAllDreams(context);
+            Toast.makeText(getApplicationContext(), "All Dreams have been deleted", Toast.LENGTH_LONG).show();
         }
 
         return super.onOptionsItemSelected(item);

@@ -38,7 +38,7 @@ public class Dream {
         return f.delete();
     }
 
-    public String getDreamByDate(String date, Context context){
+    public static String getDreamByDate(String date, Context context){
         try{
             //convert JSON String to JSON Object Array
             String allDreams = getAllDreams(context);

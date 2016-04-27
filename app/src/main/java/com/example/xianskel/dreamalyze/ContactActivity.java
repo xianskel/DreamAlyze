@@ -1,11 +1,13 @@
 package com.example.xianskel.dreamalyze;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 public class ContactActivity extends AppCompatActivity {
 
@@ -43,7 +45,9 @@ public class ContactActivity extends AppCompatActivity {
             startActivity(myIntent);
         }
         else if(id == R.id.action_clear_logs){
-            return true;
+            Context context = getApplicationContext();
+            Dream.clearAllDreams(context);
+            Toast.makeText(getApplicationContext(), "All Dreams have been deleted", Toast.LENGTH_LONG).show();
         }
 
         return super.onOptionsItemSelected(item);

@@ -2,6 +2,7 @@ package com.example.xianskel.dreamalyze;
 
 //API KEY IS c9708cb2f12b7e678d807d443ba61ca4b6890145
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -86,7 +88,9 @@ public class MainActivity extends AppCompatActivity {
            startActivity(myIntent);
        }
        else if(id == R.id.action_clear_logs){
-           return true;
+           Context context = getApplicationContext();
+           Dream.clearAllDreams(context);
+           Toast.makeText(getApplicationContext(), "All Dreams have been deleted", Toast.LENGTH_LONG).show();
        }
 
         return super.onOptionsItemSelected(item);

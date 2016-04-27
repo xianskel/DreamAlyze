@@ -18,72 +18,65 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:gravity="right">
+        android:gravity="center">
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:paddingTop="20dp"
             android:src="@drawable/logo"
             />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/layout2"
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:id="@+id/InnerRelativeLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/layout1"
-        android:layout_marginTop="8dp"
-        android:gravity="center">
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="30dp">
 
-        <Button
-            android:id="@+id/record_dream_view_btn"
-            android:layout_width="250dp"
+        <LinearLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Record Dream"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/layout3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/layout2"
-        android:layout_marginTop="8dp"
-        android:gravity="center">
+            android:layout_marginTop="8dp"
+            android:gravity="center">
 
-        <Button
-            android:id="@+id/view_logs_btn"
-            android:layout_width="250dp"
+            <Button
+                android:id="@+id/record_dream_view_btn"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="Record Dream"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layout3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="View Logs" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/layout4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/layout3"
-        android:layout_marginTop="8dp"
-        android:gravity="center">
+            android:layout_below="@id/layout2"
+            android:layout_marginTop="8dp"
+            android:gravity="center">
 
-        <Button
-            android:id="@+id/dream_graph_view_btn"
-            android:layout_width="250dp"
+            <Button
+                android:id="@+id/view_logs_btn"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="View Logs" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layout4"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dream Graph" />
-    </LinearLayout>
+            android:layout_below="@id/layout3"
+            android:layout_marginTop="8dp"
+            android:gravity="bottom|center"
+            >
 
-    <LinearLayout
-        android:id="@+id/layout5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/layout4"
-        android:layout_marginTop="8dp"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/test_btn"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:text="Test Button" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/dream_graph_view_btn"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="Dream Graph" />
+        </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>

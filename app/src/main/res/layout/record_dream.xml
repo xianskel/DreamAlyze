@@ -18,28 +18,25 @@
         android:layout_width="match_parent"
     android:layout_height="350dp"
     android:layout_marginTop="8dp"
-    android:padding="10dp"
-    android:gravity="right">
+    android:padding="10dp">
 
     <EditText
         android:layout_width="345dp"
         android:layout_height="match_parent"
         android:inputType="textMultiLine"
-        android:ems="10"
+        android:hint="Type your dream here boyo...."
+        android:gravity="top|left"
         android:id="@+id/dream_text"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.51"
-        android:padding="10dp"
-        android:background="#E0E0E0"/>
+        android:padding="10dp" />
 
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@id/layout1"
         android:layout_marginTop="8dp"
-        android:gravity="center">
+        android:gravity="center|center">
 
         <Button
             android:id="@+id/record_dream_btn"

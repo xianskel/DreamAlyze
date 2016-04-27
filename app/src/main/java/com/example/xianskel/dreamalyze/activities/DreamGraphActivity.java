@@ -13,6 +13,9 @@ import com.github.mikephil.charting.charts.PieChart;
 import com.example.xianskel.dreamalyze.pojos.Dream;
 import com.example.xianskel.dreamalyze.R;
 
+import com.example.xianskel.dreamalyze.pojos.Dream;
+import com.example.xianskel.dreamalyze.R;
+
 public class DreamGraphActivity extends AppCompatActivity {
 
     private Toolbar toolbar;

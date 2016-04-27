@@ -26,10 +26,6 @@
             android:label="@string/app_name"
             android:name=".DreamGraphActivity" >
         </activity>
-        <activity
-            android:label="@string/app_name"
-            android:name=".DreamInfoActivity" >
-        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

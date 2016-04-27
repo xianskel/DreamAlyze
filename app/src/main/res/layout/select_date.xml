@@ -16,7 +16,7 @@
     android:id="@+id/layout1"
     android:layout_below="@id/tool_bar"
     android:layout_width="match_parent"
-    android:layout_height="400dp"
+    android:layout_height="300dp"
     android:layout_marginTop="8dp"
     android:padding="10dp"
     android:gravity="right">
@@ -38,7 +38,7 @@
     android:gravity="center">
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/select_date_btn"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="View Dream"/>

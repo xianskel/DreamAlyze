@@ -25,7 +25,8 @@ public class SelectDateActivity extends AppCompatActivity {
     private Calendar c = Calendar.getInstance();
     private int selectedYear = c.get(Calendar.YEAR);
     private String selectedMonth = "0"+(c.get(Calendar.MONTH)+1);
-    private int selectedDay = c.get(Calendar.DATE);;
+    private int selectedDay = c.get(Calendar.DATE);
+    private String date = selectedDay+"/"+selectedMonth+"/"+selectedYear;
 
 
     @Override
@@ -54,13 +55,13 @@ public class SelectDateActivity extends AppCompatActivity {
 
         select_date_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Toast.makeText(getApplicationContext(),
-                        selectedDay + "/" + selectedMonth + "/" + selectedYear, Toast.LENGTH_LONG).show();
-                System.out.println("test");
-                Context context = getApplicationContext();
-                System.out.println(selectedDay+"/"+selectedMonth+"/"+selectedYear);
-                System.out.println(Dream.getDreamByDate(selectedDay + "/" + selectedMonth + "/" + selectedYear, context));
+                date = selectedDay+"/"+selectedMonth+"/"+selectedYear;
 
+                // Start NewActivity.class
+                Intent myIntent = new Intent(SelectDateActivity.this,
+                        DateDreamActivity.class);
+                myIntent.putExtra("date", date);
+                startActivity(myIntent);
             }
         });
     }

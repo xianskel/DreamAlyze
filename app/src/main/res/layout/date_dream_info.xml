@@ -42,9 +42,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Text from the dream goes here"
             android:padding="10dp"
-            android:id="@+id/dreamText"
+            android:id="@+id/dream_text"
             android:textColor="#E0E0E0"/>
     </LinearLayout>
 

@@ -58,6 +58,12 @@ public class RecordDreamActivity extends AppCompatActivity {
                         System.out.println("Dream:" + dream);
                         System.out.println(formattedDate);
 
+                        // Start NewActivity.class
+                        Intent myIntent = new Intent(RecordDreamActivity.this,
+                                DateDreamActivity.class);
+                        myIntent.putExtra("date", formattedDate);
+                        startActivity(myIntent);
+
 
                     }
                     catch(Exception e){

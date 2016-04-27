@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Date;
@@ -14,6 +15,7 @@ import java.util.Date;
 public class DateDreamActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
+    private String dreamText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,17 @@ public class DateDreamActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
+
+        Bundle b = getIntent().getExtras();
+        String date = b.getString("date");
+        System.out.println(date);
+
+        Context context = getApplicationContext();
+        dreamText = Dream.getDreamByDate(date, context);
+
+        TextView dreamTextView = (TextView)findViewById(R.id.dream_text);
+
+        dreamTextView.setText(dreamText);
     }
 
     @Override

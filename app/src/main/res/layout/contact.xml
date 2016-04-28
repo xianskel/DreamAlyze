@@ -19,16 +19,27 @@
         android:layout_height="300dp"
         android:layout_marginTop="8dp"
         android:padding="10dp"
-        android:gravity="right">
+        android:orientation="vertical"
+        android:weightSum="1">
+
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Contact text goes here"
+            android:text="Contact Form"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="5dp"
             android:id="@+id/dateText"
             android:textColor="#E0E0E0"/>
 
+
+
+       
+
+
     </LinearLayout>
+
+
 
 </RelativeLayout>

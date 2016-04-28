@@ -18,10 +18,11 @@ import com.android.volley.toolbox.Volley;
 import com.example.xianskel.dreamalyze.pojos.Dream;
 
 public class API {
-    private static String res;
-    public static String makeRequest(final Context context, String endPoint) {
+    private static JSONObject res;
+    public static JSONObject makeRequest(Context context, String endPoint) {
         //used for queueing our request
         RequestQueue queue = Volley.newRequestQueue(context);
+        final String dreamText = Dream.getAllDreamText(context);
         //hold the response
         //URL we will submit the post request to using the endpoint sentiment
         String url = "https://api.aylien.com/api/v1/" + endPoint;
@@ -35,7 +36,7 @@ public class API {
                             System.out.println("Made request with response " + response);
                             JSONObject jsonResponse = new JSONObject(response);
                             System.out.println(jsonResponse.toString());
-                            res = jsonResponse.toString();
+                            res = jsonResponse;
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -54,7 +55,7 @@ public class API {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 //get all the text the user used in dreams
-                params.put("text", Dream.getAllDreamText(context));
+                params.put("text", dreamText);
                 return params;
             }
 

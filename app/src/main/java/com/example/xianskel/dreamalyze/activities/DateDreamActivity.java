@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.xianskel.dreamalyze.model.API;
 import com.example.xianskel.dreamalyze.pojos.Dream;
 import com.example.xianskel.dreamalyze.R;
 import com.github.mikephil.charting.charts.PieChart;
@@ -21,14 +23,20 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.data.Entry;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
-public class DateDreamActivity extends AppCompatActivity {
+public class DateDreamActivity extends AppCompatActivity{
 
     private Toolbar toolbar;
     private String dreamText;
 
     private PieChart chart;
+    private Context context;
+    private JSONObject response;
     private float[] amounts = {5,10,20,30,35};
     private String[] labels = {"Angry", "Sad", "Nervous", "Happy", "Anxious"};
 
@@ -50,6 +58,12 @@ public class DateDreamActivity extends AppCompatActivity {
         TextView dreamTextView = (TextView)findViewById(R.id.dream_text);
 
         dreamTextView.setText(dreamText);
+
+        context = getApplicationContext();
+        response = API.makeRequest(context, "classify/iab-qag");
+
+        System.out.println(response);
+
 
         chart = (PieChart) findViewById(R.id.day_chart);
 
@@ -84,6 +98,8 @@ public class DateDreamActivity extends AppCompatActivity {
         l.setTextColor(Color.WHITE);
         l.setTextSize(15f);
         l.setForm(Legend.LegendForm.CIRCLE);
+
+
     }
 
     private void addData(){

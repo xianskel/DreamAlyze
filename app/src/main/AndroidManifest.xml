@@ -3,6 +3,7 @@
     package="com.example.xianskel.dreamalyze">
     <!-- Since we are using an API we need to use the internet -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"

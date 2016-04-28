@@ -109,7 +109,7 @@ public class Dream {
 
             for(int i = 0; i < dreams.length(); i++){
                 JSONObject dream = dreams.getJSONObject(i);
-                allDreamText+=dream.get("dream");
+                allDreamText+=(dream.get("dream")+" ");
             }
         }
         catch(JSONException j){

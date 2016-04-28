@@ -9,10 +9,6 @@ import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 import com.github.mikephil.charting.charts.PieChart;
-
-import com.example.xianskel.dreamalyze.pojos.Dream;
-import com.example.xianskel.dreamalyze.R;
-
 import com.example.xianskel.dreamalyze.pojos.Dream;
 import com.example.xianskel.dreamalyze.R;
 

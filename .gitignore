@@ -3,6 +3,10 @@
 *.apk
 *.ap_
 
+<<<<<<< HEAD
+=======
+build/
+>>>>>>> 7317a7f740d0d6e8ce3d08be9889f417b9620450
 
 # Files for the Dalvik VM
 *.dex
@@ -15,6 +19,10 @@ bin/
 gen/
 out/
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7317a7f740d0d6e8ce3d08be9889f417b9620450
 # Local configuration file (sdk path, etc)
 local.properties
 

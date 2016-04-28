@@ -33,7 +33,6 @@ public class API {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            System.out.println("Made request with response " + response);
                             JSONObject jsonResponse = new JSONObject(response);
                             System.out.println(jsonResponse.toString());
                             res = jsonResponse;

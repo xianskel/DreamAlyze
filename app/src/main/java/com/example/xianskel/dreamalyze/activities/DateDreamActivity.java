@@ -24,10 +24,12 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.data.Entry;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DateDreamActivity extends AppCompatActivity{
 
@@ -62,8 +64,24 @@ public class DateDreamActivity extends AppCompatActivity{
         context = getApplicationContext();
         response = API.makeRequest(context, "classify/iab-qag");
 
+        List<String> catLabels = new ArrayList<>();
+
+       try{
+            //store categories in a JSON array
+           System.out.println(response.get("text"));
+           JSONArray categoryLabels = (JSONArray)response.get("categories");
+
+            for(int i = 0; i < categoryLabels.length(); i++){
+                JSONObject singlecat = (JSONObject)categoryLabels.get(i);
+                catLabels.add((String)singlecat.get("label"));
+            }
+        }
+        catch(JSONException j){
+            j.printStackTrace();
+        }
         System.out.println(response);
 
+        //System.out.println(catLabels);
 
         chart = (PieChart) findViewById(R.id.day_chart);
 

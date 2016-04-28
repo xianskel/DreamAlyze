@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.xianskel.dreamalyze.model.API;
 import com.example.xianskel.dreamalyze.pojos.Dream;
 import com.example.xianskel.dreamalyze.R;
@@ -24,10 +23,11 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.data.Entry;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class DateDreamActivity extends AppCompatActivity{
 
@@ -37,8 +37,9 @@ public class DateDreamActivity extends AppCompatActivity{
     private PieChart chart;
     private Context context;
     private JSONObject response;
-    private float[] amounts = {5,10,20,30,35};
-    private String[] labels = {"Angry", "Sad", "Nervous", "Happy", "Anxious"};
+    private List<Map.Entry<String, Integer>> wordCount;
+    private float[] amounts = new float[5];
+    private String[] labels = new String[5];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,15 @@ public class DateDreamActivity extends AppCompatActivity{
         context = getApplicationContext();
         response = API.makeRequest(context, "classify/iab-qag");
 
+        wordCount = Dream.wordCount(context);
+
+       for(int i=0; i<5; i++){
+            labels[i] = wordCount.get(i).getKey();
+            amounts[i] = wordCount.get(i).getValue();
+       }
+
+        System.out.println(wordCount.get(0).getKey());
+        System.out.println(wordCount);
         System.out.println(response);
 
 

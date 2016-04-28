@@ -13,9 +13,11 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class Dream {
     //GET ALL DREAMS METHOD THAT WILL RETURN THE DATE OF THE DREAM AND THE SUBJECTS
@@ -119,9 +121,10 @@ public class Dream {
         return allDreamText;
     }
 
-    public static Map<String, Integer> wordCount(Context context){
-        Map<String, Integer> wordCount = new TreeMap<>();
+    public static List<Map.Entry<String, Integer>> wordCount(Context context){
+        Map<String, Integer> wordCount = new HashMap<>();
         String allDreams = getAllDreams(context);
+        List<Map.Entry<String, Integer>> wordList;
 
         try{
             JSONArray dreams = new JSONArray(allDreams);
@@ -148,12 +151,21 @@ public class Dream {
                     }
                 }
             }
+
         }
         catch(Exception e){
             System.out.println("Something went wrong");
         }
-        //return the map
-        return wordCount;
+
+        wordList = new ArrayList<Map.Entry<String ,Integer>>(wordCount.entrySet());
+
+        Collections.sort(wordList, new Comparator<Map.Entry<String, Integer>>() {
+            public int compare(Map.Entry<String, Integer> first, Map.Entry<String, Integer> second) {
+                return second.getValue() - (first.getValue());
+            }
+        });
+
+        return wordList;
     }
 
     private static List<String>getNoiseWords(){

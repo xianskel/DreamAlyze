@@ -1,4 +1,4 @@
-package com.example.xianskel.dreamalyze;
+package com.example.xianskel.dreamalyze.activities;
 
 //API KEY IS c9708cb2f12b7e678d807d443ba61ca4b6890145
 
@@ -12,6 +12,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.xianskel.dreamalyze.pojos.Dream;
+import com.example.xianskel.dreamalyze.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         record_view_button = (Button) findViewById(R.id.record_dream_view_btn);
         view_logs_button = (Button) findViewById(R.id.view_logs_btn);
         dream_graph_view_button = (Button) findViewById(R.id.dream_graph_view_btn);
+
 
         // Capture button clicks
         record_view_button.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
     }
 
     @Override

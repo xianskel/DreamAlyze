@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.xianskel.dreamalyze.MainActivity"
+    tools:context=".activities.MainActivity"
     android:background="@color/background">
 
     <include
@@ -13,7 +13,7 @@
         ></include>
 
     <LinearLayout
-        android:id="@+id/layout1"
+        android:id="@+id/daychart"
         android:layout_below="@id/tool_bar"
         android:layout_width="match_parent"
         android:layout_height="300dp"
@@ -21,11 +21,10 @@
         android:padding="10dp"
         android:gravity="right">
 
-        <ImageView
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/day_chart"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:paddingTop="20dp"
-            android:src="@drawable/piechart"
+            android:layout_height="match_parent"
             />
 
     </LinearLayout>
@@ -34,7 +33,7 @@
         android:id="@+id/layout2"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_below="@id/layout1"
+        android:layout_below="@id/daychart"
         android:padding="10dp"
         android:layout_marginTop="8dp"
         android:gravity="center">
@@ -42,10 +41,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Text from the dream goes here"
             android:padding="10dp"
-            android:id="@+id/dreamText"
-            android:textColor="#E0E0E0"/>
+            android:id="@+id/dream_text"
+            android:textColor="#E0E0E0"
+            android:textSize="15dp"/>
     </LinearLayout>
 
 </RelativeLayout>

@@ -18,11 +18,13 @@ import com.android.volley.toolbox.Volley;
 import com.example.xianskel.dreamalyze.pojos.Dream;
 
 public class API {
-    public static void makeRequest(final Context context){
+    private static String res;
+    public static String makeRequest(final Context context, String endPoint) {
         //used for queueing our request
         RequestQueue queue = Volley.newRequestQueue(context);
+        //hold the response
         //URL we will submit the post request to using the endpoint sentiment
-        String url = "https://api.aylien.com/api/v1/sentiment";
+        String url = "https://api.aylien.com/api/v1/" + endPoint;
         String text = "";
         //make a new StringRequest object
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
@@ -33,6 +35,7 @@ public class API {
                             System.out.println("Made request with response " + response);
                             JSONObject jsonResponse = new JSONObject(response);
                             System.out.println(jsonResponse.toString());
+                            res = jsonResponse.toString();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -41,6 +44,7 @@ public class API {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+
                         error.printStackTrace();
                     }
                 }
@@ -53,6 +57,7 @@ public class API {
                 params.put("text", Dream.getAllDreamText(context));
                 return params;
             }
+
             //add the headers which is the APIKey and the ApplicationID
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
@@ -63,7 +68,9 @@ public class API {
                 return headers;
             }
         };
+
         queue.add(postRequest);
+        return res;
     }
 }
 

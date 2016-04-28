@@ -11,6 +11,11 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Dream {
     //GET ALL DREAMS METHOD THAT WILL RETURN THE DATE OF THE DREAM AND THE SUBJECTS
@@ -98,7 +103,6 @@ public class Dream {
     public static String getAllDreamText(Context context){
         String allDreamText = "";
         try{
-
             //convert JSON String to JSON Object Array
             String allDreams = getAllDreams(context);
             JSONArray dreams = new JSONArray(allDreams);
@@ -113,6 +117,48 @@ public class Dream {
         }
 
         return allDreamText;
+    }
+
+    public static Map<String, Integer> wordCount(Context context){
+        Map<String, Integer> wordCount = new TreeMap<>();
+        String allDreams = getAllDreams(context);
+
+        try{
+            JSONArray dreams = new JSONArray(allDreams);
+            for(int i = 0; i < dreams.length(); i++){
+                //get a single dream
+                JSONObject dream = dreams.getJSONObject(i);
+                //get the text of the single dream
+                String dreamText = (String)dream.get("dream");
+                //split the dream into words
+                List<String> words = new ArrayList<>(Arrays.asList(dreamText.split(" ")));
+                //remove noise words
+                words.removeAll(getNoiseWords());
+
+                int count;
+                for(String word : words){
+                    //if the word is not in the map then add it
+                    if(!wordCount.containsKey(word)){
+                        wordCount.put(word, 1);
+                    }
+                    //else increment the count of the word by 1
+                    else{
+                        count = wordCount.get(word);
+                        wordCount.put(word, count + 1);
+                    }
+                }
+            }
+        }
+        catch(Exception e){
+            System.out.println("Something went wrong");
+        }
+        //return the map
+        return wordCount;
+    }
+
+    private static List<String>getNoiseWords(){
+        return new ArrayList<>(Arrays.asList("the", "and", "a", "to", "of", "in", "i", "is", "that"
+        , "it", "on", "you", "this", "for", "or", "have", "be", "at", "as", "was", "so", "if", "out", "not"));
     }
 
 }

@@ -3,7 +3,6 @@
 *.apk
 *.ap_
 
-.gradle
 build/
 
 # Files for the Dalvik VM

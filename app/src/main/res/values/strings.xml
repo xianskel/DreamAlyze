@@ -3,4 +3,14 @@
     <string name="action_contact">Contact</string>
     <string name="action_about">About</string>
     <string name="action_clear_logs">Clear Logs</string>
+    <string name="about_title">About DreamAlyze</string>
+    <string name="about_p1">The brain child of four dreamers looking to help people understand their nightly musings</string>
+    <string name="about_p2">DreamAlyze allows users to log their dreams and recieve feedback</string>
+    <string name="about_p3">Log your dreams everyday and build a picture of your moods and thougth over time</string>
+    <string name="contact_heading">Contact Us</string>
+    <string name="email">email: info@dreamalyze.ie</string>
+    <string name="location">Located on University of Limerick Campus</string>
+    <string name="phone">Phone: 061 12345678</string>
+    <string name="about_location">Located at University Campus</string>
+    <string name="about_email">email: info@dreamalyze.ie</string>
 </resources>

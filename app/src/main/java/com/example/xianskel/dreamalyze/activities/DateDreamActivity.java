@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.xianskel.dreamalyze.model.API;
+import com.example.xianskel.dreamalyze.model.Callback;
 import com.example.xianskel.dreamalyze.pojos.Dream;
 import com.example.xianskel.dreamalyze.R;
 import com.github.mikephil.charting.charts.PieChart;
@@ -22,24 +23,36 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.data.Entry;
+<<<<<<< HEAD
+import org.json.JSONArray;
+import org.json.JSONException;
+=======
 
+<<<<<<< HEAD
+=======
+import org.json.JSONArray;
+import org.json.JSONException;
+>>>>>>> 7317a7f740d0d6e8ce3d08be9889f417b9620450
+>>>>>>> origin/master
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
 import java.util.Map;
+=======
+>>>>>>> 7317a7f740d0d6e8ce3d08be9889f417b9620450
+>>>>>>> origin/master
 
 public class DateDreamActivity extends AppCompatActivity{
 
     private Toolbar toolbar;
     private String dreamText;
-
     private PieChart chart;
-    private Context context;
     private JSONObject response;
-    private List<Map.Entry<String, Integer>> wordCount;
-    private float[] amounts = new float[5];
-    private String[] labels = new String[5];
+    private ArrayList<Float> amounts = new ArrayList<>();
+    private ArrayList<String> labels = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +64,9 @@ public class DateDreamActivity extends AppCompatActivity{
 
         Bundle b = getIntent().getExtras();
         String date = b.getString("date");
-        System.out.println(date);
+
+        TextView dateText = (TextView)findViewById(R.id.date);
+        dateText.setText("Date of dream: "+date);
 
         Context context = getApplicationContext();
         dreamText = Dream.getDreamByDate(date, context);
@@ -61,8 +76,40 @@ public class DateDreamActivity extends AppCompatActivity{
         dreamTextView.setText(dreamText);
 
         context = getApplicationContext();
+<<<<<<< HEAD
+        API.makeRequest(context, date, new Callback() {
+            @Override
+            public void onSuccess(JSONObject newresponse) {
+                response = newresponse;
+                List<String> catLabels = new ArrayList<>();
+                List<Double> scores = new ArrayList<>();
+
+
+                try {
+                    JSONArray categoryLabels = (JSONArray) response.get("categories");
+
+                    for (int i = 0; i < categoryLabels.length(); i++) {
+                        JSONObject singlecat = (JSONObject) categoryLabels.get(i);
+                        catLabels.add((String)singlecat.get("label"));
+                        scores.add((Double)singlecat.get("score"));
+                    }
+                    for(int i=0; i<Math.min(catLabels.size(), 5); i++){
+                        labels.add(catLabels.get(i));
+                        double d = scores.get(i);
+                        float f = (float) d;
+                        amounts.add(f);
+                    }
+                    addData();
+                    chart.invalidate();
+                } catch (JSONException j) {
+                    j.printStackTrace();
+                }
+            }
+        });
+=======
         response = API.makeRequest(context, "classify/iab-qag");
 
+<<<<<<< HEAD
         wordCount = Dream.wordCount(context);
 
        for(int i=0; i<5; i++){
@@ -72,15 +119,34 @@ public class DateDreamActivity extends AppCompatActivity{
 
         System.out.println(wordCount.get(0).getKey());
         System.out.println(wordCount);
+=======
+        List<String> catLabels = new ArrayList<>();
+
+       try{
+            //store categories in a JSON array
+           System.out.println(response.get("text"));
+           JSONArray categoryLabels = (JSONArray)response.get("categories");
+
+            for(int i = 0; i < categoryLabels.length(); i++){
+                JSONObject singlecat = (JSONObject)categoryLabels.get(i);
+                catLabels.add((String)singlecat.get("label"));
+            }
+        }
+        catch(JSONException j){
+            j.printStackTrace();
+        }
+>>>>>>> 7317a7f740d0d6e8ce3d08be9889f417b9620450
         System.out.println(response);
 
+        //System.out.println(catLabels);
+>>>>>>> origin/master
 
         chart = (PieChart) findViewById(R.id.day_chart);
 
         chart.setUsePercentValues(true);
         chart.setDrawHoleEnabled(false);
         chart.setRotationEnabled(true);
-        chart.setDescription("Moods");
+        chart.setDescription("Dream Topics");
         chart.setDescriptionColor(Color.WHITE);
         chart.setDescriptionTextSize(15f);
 
@@ -92,7 +158,7 @@ public class DateDreamActivity extends AppCompatActivity{
                 if (e == null)
                     return;
 
-                Toast.makeText(DateDreamActivity.this, labels[e.getXIndex()] + " = " + e.getVal() + "%", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DateDreamActivity.this, labels.get(e.getXIndex()) + " = " + e.getVal() + "%", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -100,8 +166,6 @@ public class DateDreamActivity extends AppCompatActivity{
 
             }
         });
-
-        addData();
 
         Legend l = chart.getLegend();
         l.setPosition(Legend.LegendPosition.ABOVE_CHART_CENTER);
@@ -115,14 +179,14 @@ public class DateDreamActivity extends AppCompatActivity{
     private void addData(){
         ArrayList<Entry> amounts1 = new ArrayList<Entry>();
 
-        for(int i=0; i < amounts.length; i++){
-            amounts1.add(new Entry(amounts[i], i));
+        for(int i=0; i < amounts.size(); i++){
+            amounts1.add(new Entry(amounts.get(i), i));
         }
 
         ArrayList<String> labels1 = new ArrayList<String>();
 
-        for(int i=0; i < labels.length; i++){
-            labels1.add(labels[i]);
+        for(int i=0; i < labels.size(); i++){
+            labels1.add(labels.get(i));
         }
 
         PieDataSet dataSet = new PieDataSet(amounts1, "");
@@ -143,7 +207,7 @@ public class DateDreamActivity extends AppCompatActivity{
         chart.setData(data);
 
         chart.highlightValues(null);
-        chart.invalidate();
+       // chart.invalidate();
     }
 
     @Override

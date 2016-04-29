@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private Button record_view_button;
     private Button view_logs_button;
-    private Button dream_graph_view_button;
+    private Button word_count_view_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         // Locate the button in activity_main.xml
         record_view_button = (Button) findViewById(R.id.record_dream_view_btn);
         view_logs_button = (Button) findViewById(R.id.view_logs_btn);
-        dream_graph_view_button = (Button) findViewById(R.id.dream_graph_view_btn);
+        word_count_view_button = (Button) findViewById(R.id.word_count_view_btn);
 
 
         // Capture button clicks
@@ -58,12 +58,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        dream_graph_view_button.setOnClickListener(new View.OnClickListener() {
+        word_count_view_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
 
                 // Start NewActivity.class
                 Intent myIntent = new Intent(MainActivity.this,
-                        DreamGraphActivity.class);
+                        WordCountActivity.class);
                 startActivity(myIntent);
             }
         });

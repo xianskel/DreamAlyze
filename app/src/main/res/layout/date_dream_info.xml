@@ -13,12 +13,29 @@
         ></include>
 
     <LinearLayout
-        android:id="@+id/daychart"
-        android:layout_below="@id/tool_bar"
+        android:id="@+id/layout1"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tool_bar"
         android:padding="10dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="7dp"
+            android:id="@+id/date"
+            android:textColor="#E0E0E0"
+            android:textSize="15dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/daychart"
+        android:layout_below="@id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:padding="7dp"
         android:gravity="right">
 
         <com.github.mikephil.charting.charts.PieChart
@@ -32,7 +49,7 @@
     <LinearLayout
         android:id="@+id/layout2"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="match_parent"
         android:layout_below="@id/daychart"
         android:padding="10dp"
         android:layout_marginTop="8dp"

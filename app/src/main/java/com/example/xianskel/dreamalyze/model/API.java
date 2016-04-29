@@ -1,13 +1,12 @@
 package com.example.xianskel.dreamalyze.model;
 
 import android.content.Context;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -17,26 +16,28 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.xianskel.dreamalyze.pojos.Dream;
 
-public class API {
+public class API{
     private static JSONObject res;
-    public static JSONObject makeRequest(Context context, String endPoint) {
+    private static List<String> catLabels = new ArrayList<>();
+
+    public static void makeRequest(Context context, String date, final Callback onCallback) {
         //used for queueing our request
         RequestQueue queue = Volley.newRequestQueue(context);
-        final String dreamText = Dream.getAllDreamText(context);
+        final String dreamText = Dream.getDreamByDate(date, context);
         //hold the response
         //URL we will submit the post request to using the endpoint sentiment
-        String url = "https://api.aylien.com/api/v1/" + endPoint;
-        String text = "";
+        String url = "https://api.aylien.com/api/v1/classify/iab-qag";
+
         //make a new StringRequest object
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            System.out.println("Made request with response " + response);
                             JSONObject jsonResponse = new JSONObject(response);
-                            System.out.println(jsonResponse.toString());
                             res = jsonResponse;
+                            onCallback.onSuccess(jsonResponse);
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -45,7 +46,6 @@ public class API {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
                         error.printStackTrace();
                     }
                 }
@@ -71,7 +71,7 @@ public class API {
         };
 
         queue.add(postRequest);
-        return res;
     }
+
 }
 

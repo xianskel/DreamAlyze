@@ -124,7 +124,7 @@ public class Dream {
     public static List<Map.Entry<String, Integer>> wordCount(Context context){
         Map<String, Integer> wordCount = new HashMap<>();
         String allDreams = getAllDreams(context);
-        List<Map.Entry<String, Integer>> wordList;
+        ArrayList<Map.Entry<String, Integer>> wordList;
 
         try{
             JSONArray dreams = new JSONArray(allDreams);
@@ -133,8 +133,15 @@ public class Dream {
                 JSONObject dream = dreams.getJSONObject(i);
                 //get the text of the single dream
                 String dreamText = (String)dream.get("dream");
+                String cleanText = "";
+                for(int j=0; j<dreamText.length(); j++){
+                    char c = dreamText.charAt(j);
+                    if(Character.toString(c).matches("[a-zA-Z0-9 ]")){
+                        cleanText += c;
+                    }
+                }
                 //split the dream into words
-                List<String> words = new ArrayList<>(Arrays.asList(dreamText.split(" ")));
+                List<String> words = new ArrayList<>(Arrays.asList(cleanText.toLowerCase().split(" ")));
                 //remove noise words
                 words.removeAll(getNoiseWords());
 
@@ -157,7 +164,7 @@ public class Dream {
             System.out.println("Something went wrong");
         }
 
-        wordList = new ArrayList<Map.Entry<String ,Integer>>(wordCount.entrySet());
+        wordList = new ArrayList<>(wordCount.entrySet());
 
         Collections.sort(wordList, new Comparator<Map.Entry<String, Integer>>() {
             public int compare(Map.Entry<String, Integer> first, Map.Entry<String, Integer> second) {
@@ -170,7 +177,8 @@ public class Dream {
 
     private static List<String>getNoiseWords(){
         return new ArrayList<>(Arrays.asList("the", "and", "a", "to", "of", "in", "i", "is", "that"
-        , "it", "on", "you", "this", "for", "or", "have", "be", "at", "as", "was", "so", "if", "out", "not"));
+        , "it", "on", "you", "this", "for", "or", "have", "be", "at", "as", "was", "so", "if", "out"
+                , "not", "has", "are", "me", "my", "an", "but", "they"));
     }
 
 }

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.xianskel.dreamalyze.pojos.Dream;
@@ -15,6 +17,9 @@ import com.example.xianskel.dreamalyze.R;
 public class ContactActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
+    private Button submit_contact_button;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +28,22 @@ public class ContactActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
+
+        submit_contact_button = (Button) findViewById(R.id.submit_contact_btn);
+
+        submit_contact_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent contactIntent = new Intent(ContactActivity.this,
+                        MainActivity.class);
+
+                startActivity(contactIntent);
+                Toast.makeText(getApplicationContext(), "Your Message has been Submitted", Toast.LENGTH_LONG).show();
+
+            }
+        });
     }
 
     @Override
@@ -55,5 +76,7 @@ public class ContactActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
 }

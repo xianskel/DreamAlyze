@@ -24,22 +24,34 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.data.Entry;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import org.json.JSONArray;
 import org.json.JSONException;
 =======
+=======
+>>>>>>> origin/master
 
 <<<<<<< HEAD
 =======
 import org.json.JSONArray;
 import org.json.JSONException;
 >>>>>>> 7317a7f740d0d6e8ce3d08be9889f417b9620450
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+import java.util.Map;
+=======
+>>>>>>> 7317a7f740d0d6e8ce3d08be9889f417b9620450
+>>>>>>> origin/master
+=======
 import java.util.Map;
 =======
 >>>>>>> 7317a7f740d0d6e8ce3d08be9889f417b9620450
@@ -139,6 +151,9 @@ public class DateDreamActivity extends AppCompatActivity{
         System.out.println(response);
 
         //System.out.println(catLabels);
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 
         chart = (PieChart) findViewById(R.id.day_chart);

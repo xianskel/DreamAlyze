@@ -45,8 +45,8 @@ public class RecordDreamActivity extends AppCompatActivity {
                 final String formattedDate = df.format(c.getTime());
                 String dream = dreamText.getText().toString();
 
-                if(dream.length()<5){
-                    Toast.makeText(getApplicationContext(), "Dreams must be at least 5 characters", Toast.LENGTH_LONG).show();
+                if(dream.length()<140){
+                    Toast.makeText(getApplicationContext(), "Dreams must be at least 140 characters", Toast.LENGTH_LONG).show();
                 }
 
                 else if(dream.length()>500){

@@ -23,39 +23,11 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.data.Entry;
-<<<<<<< HEAD
-<<<<<<< HEAD
 import org.json.JSONArray;
 import org.json.JSONException;
-=======
-=======
->>>>>>> origin/master
-
-<<<<<<< HEAD
-=======
-import org.json.JSONArray;
-import org.json.JSONException;
->>>>>>> 7317a7f740d0d6e8ce3d08be9889f417b9620450
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-import java.util.Map;
-=======
->>>>>>> 7317a7f740d0d6e8ce3d08be9889f417b9620450
->>>>>>> origin/master
-=======
-import java.util.Map;
-=======
->>>>>>> 7317a7f740d0d6e8ce3d08be9889f417b9620450
->>>>>>> origin/master
 
 public class DateDreamActivity extends AppCompatActivity{
 
@@ -88,7 +60,7 @@ public class DateDreamActivity extends AppCompatActivity{
         dreamTextView.setText(dreamText);
 
         context = getApplicationContext();
-<<<<<<< HEAD
+
         API.makeRequest(context, date, new Callback() {
             @Override
             public void onSuccess(JSONObject newresponse) {
@@ -118,43 +90,6 @@ public class DateDreamActivity extends AppCompatActivity{
                 }
             }
         });
-=======
-        response = API.makeRequest(context, "classify/iab-qag");
-
-<<<<<<< HEAD
-        wordCount = Dream.wordCount(context);
-
-       for(int i=0; i<5; i++){
-            labels[i] = wordCount.get(i).getKey();
-            amounts[i] = wordCount.get(i).getValue();
-       }
-
-        System.out.println(wordCount.get(0).getKey());
-        System.out.println(wordCount);
-=======
-        List<String> catLabels = new ArrayList<>();
-
-       try{
-            //store categories in a JSON array
-           System.out.println(response.get("text"));
-           JSONArray categoryLabels = (JSONArray)response.get("categories");
-
-            for(int i = 0; i < categoryLabels.length(); i++){
-                JSONObject singlecat = (JSONObject)categoryLabels.get(i);
-                catLabels.add((String)singlecat.get("label"));
-            }
-        }
-        catch(JSONException j){
-            j.printStackTrace();
-        }
->>>>>>> 7317a7f740d0d6e8ce3d08be9889f417b9620450
-        System.out.println(response);
-
-        //System.out.println(catLabels);
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
 
         chart = (PieChart) findViewById(R.id.day_chart);
 
